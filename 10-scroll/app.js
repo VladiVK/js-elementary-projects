@@ -11,7 +11,6 @@ document.querySelector('.date').innerHTML = new Date().getFullYear();
 const navToggle = document.querySelector('.nav-toggle');
 const linksContainer = document.querySelector('.links-container');
 const links = document.querySelector('.links');
-const scrollLinks = linksContainer.querySelectorAll('.scroll-link');
 
 navToggle.addEventListener('click', () => {
   //   linksContainer.classList.toggle('show-links');
@@ -27,6 +26,7 @@ navToggle.addEventListener('click', () => {
 // ********** fixed navbar & top link ************
 const navBar = document.getElementById('nav');
 const topLink = document.querySelector('.top-link');
+
 window.addEventListener('scroll', () => {
   const scrollHeight = window.pageYOffset;
   const navBarHeight = navBar.getBoundingClientRect().height;
@@ -45,20 +45,38 @@ window.addEventListener('scroll', () => {
 });
 
 // ********** smooth scroll ************
-
+const scrollLinks = document.querySelectorAll('.scroll-link');
 scrollLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
+    // event prevent default: now... any link does not work !!!!
     e.preventDefault();
-    linksContainer.style.height = 0;
-
-    const id = e.target.getAttribute('href').slice(1);
+    // navigate to specific DOM spot
+    const id = e.currentTarget.getAttribute('href').slice(1);
     const elem = document.getElementById(id);
 
-    window.scroll({
-      top: elem.offsetTop - 60,
+    // calculate the heights
+    const navBarHeight = navBar.getBoundingClientRect().height;
+    const linksContainerHeight = linksContainer.getBoundingClientRect().height;
+    // если фиксирован, то вырван из потока !!!
+    const isFixedNav = navBar.classList.contains('fixed-nav');
+
+    let position = elem.offsetTop - navBarHeight;
+
+    if (!isFixedNav) {
+      position = position - navBarHeight;
+    }
+    // for small screen! if links container is open, we need care about it...
+    if (navBarHeight > 82) {
+      position = position + linksContainerHeight;
+    }
+
+    window.scrollTo({
+      top: position,
       left: 0,
       behavior: 'smooth',
     });
+    // hide links container
+    linksContainer.style.height = 0;
   });
 });
 // select links
