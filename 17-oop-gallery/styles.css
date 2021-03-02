@@ -149,6 +149,9 @@ p {
 
 /* section */
 .section {
+
+  border: 1px solid coral;
+
   padding: 5rem 0;
   width: 90vw;
   margin: 0 auto;
