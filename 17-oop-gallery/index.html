@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery Starter</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Nature Gallery -->
+  <section class="section nature">
+    <img class="img" data-id="1" src="./images/nature-1.jpeg" title="nature-1" alt="nature-1">
+    <img class="img" data-id="2" src="./images/nature-2.jpeg" title="nature-2" alt="nature-2">
+    <img class="img" data-id="3" src="./images/nature-3.jpeg" title="nature-3" alt="nature-3">
+  </section>
+  <!-- City Gallery -->
+  <section class="section city">
+    <img class="img" data-id="1" src="./images/city-1.jpeg" title="city-1" alt="city-1">
+    <img class="img" data-id="2" src="./images/city-2.jpeg" title="city-2" alt="city-2">
+    <img class="img" data-id="3" src="./images/city-3.jpeg" title="city-3" alt="city-3">
+    <img class="img" data-id="4" src="./images/city-4.jpeg" title="city-4" alt="city-4">
+    <img class="img" data-id="5" src="./images/city-5.jpeg" title="city-5" alt="city-5">
+  </section>
+  <!-- modal -->
+  <div class="modal">
+    <!-- <div class="modal open"> -->
+    <button class="close-btn">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-content">
+      <!-- prev, next buttons -->
+      <button class="prev-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="next-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <!-- content -->
+      <img class="main-img" src="./images/city-1.jpeg" alt="">
+      <h3 class="image-name">image name</h3>
+      <div class="modal-images">
+        <img class="modal-img" data-id="1" src="./images/city-1.jpeg" title="city-1" alt="city-1">
+        <img class="modal-img" data-id="2" src="./images/city-2.jpeg" title="city-2" alt="city-2">
+        <img class="modal-img selected" data-id="3" src="./images/city-3.jpeg" title="city-3" alt="city-3">
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
