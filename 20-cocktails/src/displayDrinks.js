@@ -1,4 +1,5 @@
 import get from './getElement.js';
+import { hideLoading } from './toggleLoading.js';
 
 const displayDrinks = ({ drinks }) => {
   const section = get('.section-center');
@@ -6,6 +7,8 @@ const displayDrinks = ({ drinks }) => {
 
   if (!drinks) {
     //   hide loading
+    hideLoading();
+    // set title
     title.textContent = `sorry, no drinks match your search`;
     section.innerHTML = null;
     return;
@@ -23,6 +26,8 @@ const displayDrinks = ({ drinks }) => {
     })
     .join('');
   //   hide loading
+  hideLoading();
+  // set content
   title.textContent = ``;
   section.innerHTML = newDrinks;
   return section;
