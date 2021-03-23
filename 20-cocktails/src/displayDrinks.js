@@ -4,15 +4,14 @@ import { hideLoading } from './toggleLoading.js';
 const displayDrinks = ({ drinks }) => {
   const section = get('.section-center');
   const title = get('.title');
-
+  // *** do not have drinks
   if (!drinks) {
-    //   hide loading
     hideLoading();
-    // set title
     title.textContent = `sorry, no drinks match your search`;
     section.innerHTML = null;
     return;
   }
+  // *** have drinks
   const newDrinks = drinks
     .map((drink) => {
       const { idDrink: id, strDrink: name, strDrinkThumb: image } = drink;

@@ -6,13 +6,11 @@ const presentDrinks = async (url) => {
   // *** fetch drinks
   const data = await fetchDrinks(url);
   // *** display drinks
-  // технически ждать необязательно,
+  // технически ждать необязательно, т.е. просто: displayDrinks(data)
   // но в нашем случае - важно, так как будем потом динамически
   //переходить на отдельные страницы
   const section = await displayDrinks(data);
-  if (section) {
-    setDrink(section);
-  }
+  if (section) setDrink(section);
 };
 
 export default presentDrinks;
