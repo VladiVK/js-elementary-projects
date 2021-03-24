@@ -24,6 +24,43 @@ const persons = people
   .join('');
 container.innerHTML = persons;
 
+const startSlider = (type) => {
+  const active = get('.active');
+  const last = get('.last');
+  let next = active.nextElementSibling;
+  if (!next) {
+    next = container.firstElementChild;
+  }
+
+  active.classList.remove(['active']);
+  last.classList.remove(['last']);
+  next.classList.remove(['next']);
+
+  if (type === 'prev') {
+    active.classList.add('next');
+    last.classList.add('active');
+    next = last.previousElementSibling;
+    if (!next) next = container.lastElementChild;
+
+    next.classList.add('last');
+    return;
+  }
+
+  active.classList.add('last');
+  last.classList.add('next');
+  next.classList.add('active');
+};
+
+prevBtn.addEventListener('click', () => {
+  startSlider('prev');
+});
+nextBtn.addEventListener('click', () => {
+  startSlider();
+});
+
+// const intervalID = setInterval(() => startSlider(), 4000);
+// setTimeout(() => clearInterval(intervalID), 10000);
+
 // helper
 function get(selector) {
   const element = document.querySelector(selector);
