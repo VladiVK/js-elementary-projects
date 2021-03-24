@@ -33,6 +33,5 @@ const displayDrink = (data) => {
     })
     .join('');
   document.title = `Cocktail ${name}`;
-  console.log(drink, ingredientsList);
 };
 export default displayDrink;
