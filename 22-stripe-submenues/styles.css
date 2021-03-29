@@ -407,11 +407,12 @@ Stripe Styles
 
 /* links */
 .submenu {
-  background: var(--clr-white);
-  box-shadow: var(--dark-shadow);
   position: absolute;
   top: 4rem;
   left: 50%;
+  background: var(--clr-white);
+  box-shadow: var(--dark-shadow);
+  /* important!!! */
   transform: translateX(-50%);
   z-index: 3;
   display: none;
